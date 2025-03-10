@@ -10,11 +10,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/post/:id" element={<Post />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
