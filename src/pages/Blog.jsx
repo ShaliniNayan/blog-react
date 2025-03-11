@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import './index.css';
 
 const posts = [
   { id: 1, title: "My First Blog Post", excerpt: "This is the first post..." },
