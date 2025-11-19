@@ -1,7 +1,1 @@
 @import "tailwindcss";
-@import "@tailwindcss/postcss";
-@import "autoprefixer";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
