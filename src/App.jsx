@@ -11,7 +11,6 @@ import Footer from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
-  console.log("App.jsx: Rendering App component...");
   return (
     <AuthProvider>
       <Router>
