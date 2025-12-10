@@ -1,36 +1,34 @@
-import { useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         login(username);
-        navigate('/');
+        navigate("/");
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 p-4">
-            <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-md border-4 border-yellow-300"
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 to-blue-500">
+            <div
+                className="bg-white p-10 rounded-3xl shadow-2xl w-96 animate-fade-in-up"
             >
-                <h2 className="text-4xl font-black text-center text-purple-600 mb-6 drop-shadow-sm">Welcome Back!</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <h2 className="text-3xl font-black text-center mb-6 text-gray-800">Welcome Back! 👋</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label className="block text-gray-700 font-bold mb-2">Username</label>
                         <input
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="w-full p-4 rounded-xl border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors bg-purple-50 text-lg"
-                            placeholder="Enter your cool name"
+                            className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-purple-500 transition-colors"
+                            placeholder="Enter your name"
                             required
                         />
                     </div>
@@ -38,21 +36,24 @@ export default function Login() {
                         <label className="block text-gray-700 font-bold mb-2">Password</label>
                         <input
                             type="password"
-                            className="w-full p-4 rounded-xl border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors bg-purple-50 text-lg"
-                            placeholder="Shhh... it's a secret"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="w-full px-4 py-2 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-purple-500 transition-colors"
+                            placeholder="Enter your password"
                             required
                         />
                     </div>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                    <button
                         type="submit"
-                        className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl shadow-lg text-xl hover:shadow-xl transition-all"
+                        className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl shadow-lg transform transition hover:scale-105"
                     >
-                        Log In 🚀
-                    </motion.button>
+                        Login 🚀
+                    </button>
+                    <div className="text-center mt-4">
+                        <p className="text-gray-600">Don't have an account? <Link to="/signup" className="text-purple-600 font-bold hover:underline">Sign Up</Link></p>
+                    </div>
                 </form>
-            </motion.div>
+            </div>
         </div>
     );
 }

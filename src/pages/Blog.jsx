@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import blogArtImg from "../assets/blog_art.png";
 import blogTechImg from "../assets/blog_tech.png";
 
@@ -26,13 +25,9 @@ export default function Blog() {
       <h1 className="text-5xl font-black text-center text-purple-800 mb-12 drop-shadow-sm">Our Blog ✍️</h1>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         {posts.map((post, index) => (
-          <motion.div
+          <div
             key={post.id}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            whileHover={{ scale: 1.02 }}
-            className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:border-purple-300 transition-all"
+            className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:border-purple-300 transition-all hover:scale-[1.02]"
           >
             <div className="h-64 overflow-hidden">
               <img src={post.image} alt={post.title} className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
@@ -45,7 +40,7 @@ export default function Blog() {
                 Read more <span className="ml-2">→</span>
               </Link>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

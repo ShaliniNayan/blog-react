@@ -1,15 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 export default function Post() {
   const { id } = useParams();
 
   return (
     <div className="min-h-screen bg-purple-50 p-10 flex justify-center">
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="bg-white p-10 rounded-3xl shadow-xl max-w-4xl w-full border-t-8 border-purple-500"
+      <div
+        className="bg-white p-10 rounded-3xl shadow-xl max-w-4xl w-full border-t-8 border-purple-500 animate-fade-in-up"
       >
         <Link to="/blog" className="text-purple-500 font-bold mb-6 inline-block hover:underline">← Back to Blog</Link>
         <h1 className="text-5xl font-black text-gray-800 mb-6">Amazing Post #{id}</h1>
@@ -29,7 +26,7 @@ export default function Post() {
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
