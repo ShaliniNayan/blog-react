@@ -16,6 +16,7 @@ export default function Navbar() {
           <Link to="/" className="text-gray-700 font-bold hover:text-purple-600 transition-colors">Home</Link>
           <Link to="/about" className="text-gray-700 font-bold hover:text-purple-600 transition-colors">About</Link>
           <Link to="/blog" className="text-gray-700 font-bold hover:text-purple-600 transition-colors">Blog</Link>
+          <Link to="/create-post" className="text-gray-700 font-bold hover:text-purple-600 transition-colors">Write ✍️</Link>
           <Link to="/contact" className="text-gray-700 font-bold hover:text-purple-600 transition-colors">Contact</Link>
 
           {user ? (
