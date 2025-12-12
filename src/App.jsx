@@ -9,27 +9,32 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
+import { BlogProvider } from "./context/BlogContext";
+import CreatePost from "./pages/CreatePost";
 
 export default function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div className="flex flex-col min-h-screen bg-gray-50">
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/post/:id" element={<Post />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+      <BlogProvider>
+        <Router>
+          <div className="flex flex-col min-h-screen bg-gray-50">
+            <Navbar />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/create-post" element={<CreatePost />} />
+                <Route path="/post/:id" element={<Post />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </BlogProvider>
     </AuthProvider>
   );
 }
