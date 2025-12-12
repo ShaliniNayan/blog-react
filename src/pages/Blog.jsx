@@ -1,30 +1,20 @@
 import { Link } from "react-router-dom";
-import blogArtImg from "../assets/blog_art.png";
-import blogTechImg from "../assets/blog_tech.png";
-
-const posts = [
-  {
-    id: 1,
-    title: "The Beauty of Art",
-    excerpt: "Exploring the world of art through colors and shapes...",
-    image: blogArtImg,
-    category: "Art"
-  },
-  {
-    id: 2,
-    title: "Future Tech Trends",
-    excerpt: "Robots, AI, and the future of our digital lives...",
-    image: blogTechImg,
-    category: "Tech"
-  },
-];
+import { useBlog } from "../context/BlogContext";
 
 export default function Blog() {
+  const { posts } = useBlog();
+
   return (
     <div className="min-h-screen bg-purple-50 p-10">
-      <h1 className="text-5xl font-black text-center text-purple-800 mb-12 drop-shadow-sm">Our Blog ✍️</h1>
+      <div className="flex justify-between items-center mb-12 container mx-auto">
+        <h1 className="text-5xl font-black text-purple-800 drop-shadow-sm">Our Blog ✍️</h1>
+        <Link to="/create-post" className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform hover:scale-105">
+          + Write New
+        </Link>
+      </div>
+
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <div
             key={post.id}
             className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-white hover:border-purple-300 transition-all hover:scale-[1.02]"
