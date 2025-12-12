@@ -20,6 +20,22 @@
     .animation-delay-2000 {
         animation-delay: 2s;
     }
+
+    .animate-bounce-slow {
+        animation: bounce 3s infinite;
+    }
+
+    .animate-bounce-fast {
+        animation: bounce 1s infinite;
+    }
+
+    .animate-spin-slow {
+        animation: spin 8s linear infinite;
+    }
+
+    .animate-ping-slow {
+        animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
 }
 
 @keyframes fadeInUp {
